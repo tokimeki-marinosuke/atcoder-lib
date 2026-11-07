@@ -1,6 +1,10 @@
 # atcoder-lib
 自分用atcoderで問題を解くときに役立つ知識詰め合わせセット
 
+## 問題を解くときの入口
+
+[AtCoder・競技プログラミングの頻出技術 早見表](algorithms/common-techniques.md)に、問題の特徴から使う技術を選ぶ表と学習順序をまとめています。まず制約・更新の有無・単調性などを確認し、各解説へ進んでください。
+
 ## 目的と資料の使い方
 
 AtCoderで学んだアルゴリズムや、解けなかった問題から得た考え方を蓄積する、自分用のPython 3参考書です。問題固有の記録と再利用できる知識を分け、相互リンクで復習できるようにします。既存の[学習ノート総目次](learning-notes/README.md)も利用できます。
@@ -12,6 +16,10 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[ソート](algorithms/sorting.md)|sort・sorted・key・複数条件の順位|
 |[動的計画法](algorithms/dynamic-programming.md)|状態・初期条件・遷移・フィボナッチ・ナップサック|
 |[計算量](algorithms/complexity.md)|NとMの違い・二重ループの総処理回数|
+|[セグメント木](algorithms/segment-tree.md)|1点変更・区間最小値・成立する演算|
+|[グラフの典型](algorithms/graph-patterns.md)|トポロジカルソート・Warshall–Floyd・Kruskalの考え方|
+|[木とダブリング](algorithms/tree-and-doubling.md)|K回移動・最小共通祖先LCA・木の距離|
+|[文字列処理](algorithms/string-patterns.md)|標準機能・ランレングス圧縮・Z-algorithm|
 
 詳細解説は既存の[ソート](learning-notes/01_sorting.md)・[DP](learning-notes/03_dp.md)・[計算量](learning-notes/09_complexity.md)を参照します。ほかに[二分探索](learning-notes/02_binary_search.md)・[貪欲法](learning-notes/04_greedy.md)・[グラフ](learning-notes/05_graph.md)・[データ構造](learning-notes/06_data_structures.md)・[数学](learning-notes/07_math.md)・[bit演算](learning-notes/08_bit.md)があります。
 
@@ -22,6 +30,8 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[最大値と2番目の最大値](techniques/top-two-values.md)|同率を含む上位2要素・1要素の除外|
 |[差分更新](techniques/partial-updates.md)|変更先だけの比較・復元・成立条件|
 |[同点処理](techniques/tie-breaking.md)|タプル比較・min/max/sorted・境界テスト|
+|[累積和・いもす法](techniques/prefix-sums-and-imos.md)|2次元累積和・区間加算の一括処理|
+|[しゃくとり・区間集計](techniques/sliding-window-and-counting.md)|重複禁止の窓・累積和と頻度辞書|
 
 ## コンテスト振り返り一覧
 
@@ -37,3 +47,5 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 4. 問題記録と技術資料を相互リンクし、この目次にも追加します。コードを単独で実行し、同点・最小入力などを検証します。
 
 各Pythonコードブロックは独立したプログラムです。入力を読む例は `python3 main.py < input.txt` で実行できます。固定データを含む例は `python3 main.py` で実行してください。
+
+今回追加した頻出技術のコード例と参照解との比較は、リポジトリ直下で `python3 -m unittest discover -s tests -v` を実行すると再検証できます。外部パッケージは不要です。
