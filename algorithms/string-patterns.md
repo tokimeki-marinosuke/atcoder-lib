@@ -1,5 +1,17 @@
 # 文字列処理：標準機能・ランレングス・Z-algorithm
 
+## 図でつかむ：文字をひとまとめにする／同じパターンを見つける
+
+同じ文字の連続はランレングス圧縮、パターンの全出現はZ-algorithmというように、目的を分けます。
+
+```mermaid
+flowchart TD
+    A["文字列で何を知りたい？"] --> B["連続する同じ文字"]
+    A --> C["パターンの出現位置"]
+    B --> D["aaabb → aが3回、bが2回<br/>ランレングス圧縮"]
+    C --> E["ababa 内の aba → 0・2<br/>Z-algorithm"]
+```
+
 ## まず使うPythonの機能
 
 `s.startswith(t)`、`s.endswith(t)`、`s.find(t)`、`t in s`、`s.count(t)`などを使えます。`count`は**重ならない**出現を数えるため、`'aaaa'.count('aa')`は2であり3ではありません。スライス` s[l:r] `は長さKに応じたO(K)時間・空間を使います。ループで巨大な文字列を何度も連結するより、listへためて`''.join(parts)`で結合します。`collections.Counter`は文字ごとの頻度にも使えます。
