@@ -22,6 +22,52 @@ flowchart TD
 
 区間は原則として半開区間 `[l,r)` に統一します。空区間はl=r、長さはr-lです。累積和の基本コードは[既存の計算量ノート](../learning-notes/09_complexity.md)、更新が交互にある場合は[Fenwick木](../learning-notes/06_data_structures.md)・[セグメント木](../algorithms/segment-tree.md)を参照してください。
 
+
+## 1次元累積和：区間和を引き算にする
+
+```mermaid
+flowchart LR
+    A["配列: 2, -1, 3, 4, 5"] --> B["累積和: 0, 2, 1, 4, 8, 13"]
+    B --> C["区間の添字は2から5未満<br/>3 + 4 + 5"]
+    C --> D["右までの和 - 左より前の和<br/>13 - 1 = 12"]
+```
+
+入力はN Q、N個の整数、Q行のl r（0始まり、半開区間）。$S[0]=0$、$S[i+1]=S[i]+a[i]$ とすれば区間和は $S[r]-S[l]$。前処理 $O(N)$、各問 $O(1)$、空間 $O(N)$。負数でも利用できます。
+
+```python
+from itertools import accumulate
+import sys
+input = sys.stdin.readline
+n, q = map(int, input().split())
+a = list(map(int, input().split()))
+prefix = list(accumulate(a, initial=0))  # 長さN+1、空の接頭辞は0
+for _ in range(q):
+    l, r = map(int, input().split())
+    print(prefix[r] - prefix[l])
+```
+
+入力例：
+
+```text
+5 3
+2 -1 3 4 5
+0 3
+2 5
+1 1
+```
+
+出力例：
+
+```text
+4
+12
+0
+```
+
+図で追うと、配列 `[2,-1,3,4,5]` の累積和は `[0,2,1,4,8,13]`。区間 `[2,5)` は `13-1=12` です。配列に負数があっても引き算は成立しますが、累積和の昇順は保証されません。
+
+[非負数の累積和＋二分探索](../learning-notes/02_binary_search.md)で予算内の接頭辞の最大長を探せます。[累積和＋辞書](sliding-window-and-counting.md)なら負数ありの区間和一致も数えられます。[学習順](../learning-notes/brown-to-green.md)も参照してください。
+
 ## いもす法の仕組み
 
 `[l,r)`へxを加算する代わりに、差分配列のlへ+x、rへ-xを置きます。最後に左から累積するとlから増え、rで元に戻るため、全要素を各操作で更新せずに済みます。端点r=Nも記録できるようN+1個用意します。

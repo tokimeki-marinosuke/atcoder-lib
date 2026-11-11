@@ -14,6 +14,10 @@ PAGES = [
     'algorithms/graph-patterns.md',
     'algorithms/string-patterns.md',
     'algorithms/tree-and-doubling.md',
+    'techniques/hash-maps-and-sets.md',
+    'techniques/coordinate-compression.md',
+    'techniques/interval-merging.md',
+    'learning-notes/02_binary_search.md',
 ]
 
 
@@ -44,7 +48,7 @@ class CommonTechniquesTests(unittest.TestCase):
                 with self.subTest(page=page, example=count):
                     self.assertEqual(execute(code, data), expected)
                 count += 1
-        self.assertEqual(count, 11)
+        self.assertEqual(count, 20)
 
     def test_markdown_links(self):
         for page in ROOT.rglob('*.md'):
@@ -123,6 +127,67 @@ class CommonTechniquesTests(unittest.TestCase):
         self.assertEqual(execute(topo, '1 0\n'), '0\n')
         self.assertEqual(execute(floyd, '2 2\n0 1 -1\n1 0 -1\n'), 'NEGATIVE CYCLE\n')
         self.assertEqual(execute(floyd, '1 0\n'), '0\n')
+
+    def test_frequency_and_reverse_index(self):
+        pairs, positions = [item[0] for item in examples('techniques/hash-maps-and-sets.md')]
+        rng = random.Random(46)
+        for n in (0, 1, 5, 12):
+            a = [rng.randrange(-2, 3) for _ in range(n)]
+            expected = sum(a[i] == a[j] for i in range(n) for j in range(i + 1, n))
+            self.assertEqual(execute(pairs, f'{n}\n' + ' '.join(map(str, a)) + '\n'), f'{expected}\n')
+            queries = []
+            answers = []
+            for _ in range(20):
+                l = rng.randrange(n + 1)
+                r = rng.randrange(l, n + 1)
+                x = rng.randrange(-3, 4)
+                queries.append(f'{l} {r} {x}')
+                answers.append(str(a[l:r].count(x)))
+            data = f'{n} {len(queries)}\n' + ' '.join(map(str, a)) + '\n' + '\n'.join(queries) + '\n'
+            self.assertEqual(execute(positions, data), ''.join(x + '\n' for x in answers))
+
+    def test_compression_preserves_order_and_values(self):
+        code = examples('techniques/coordinate-compression.md')[0][0]
+        for a in ([], [7], [3, 3, 3], [-10**9, 0, 10**9, -10**9]):
+            result = execute(code, f'{len(a)}\n' + ' '.join(map(str, a)) + '\n').splitlines()
+            ranks, restored, counts = [list(map(int, row.split())) for row in result]
+            self.assertEqual(restored, a)
+            values = sorted(set(a))
+            self.assertEqual(counts, [a.count(x) for x in values])
+            for i in range(len(a)):
+                for j in range(len(a)):
+                    self.assertEqual(a[i] < a[j], ranks[i] < ranks[j])
+                    self.assertEqual(a[i] == a[j], ranks[i] == ranks[j])
+
+    def test_prefix_budget_and_nearest_against_enumeration(self):
+        items = examples('learning-notes/02_binary_search.md')
+        nearest, budget = items[2][0], items[3][0]
+        for a in ([0, 0, 2, 0], [1], [2, 2, 2], []):
+            prefix = [sum(a[:i]) for i in range(len(a) + 1)]
+            queries = range(8)
+            expected = [max(i for i, s in enumerate(prefix) if s <= b) for b in queries]
+            data = f'{len(a)} 8\n' + ' '.join(map(str, a)) + '\n' + '\n'.join(map(str, queries)) + '\n'
+            self.assertEqual(execute(budget, data), ''.join(f'{x}\n' for x in expected))
+        for a in ([-5], [1, 3, 3, 7], [-9, 0, 9]):
+            queries = [-20, -3, 0, 2, 5, 20]
+            expected = [min(a, key=lambda value: (abs(value - x), value)) for x in queries]
+            data = f'{len(a)} {len(queries)}\n' + ' '.join(map(str, a)) + '\n' + '\n'.join(map(str, queries)) + '\n'
+            self.assertEqual(execute(nearest, data), ''.join(f'{x}\n' for x in expected))
+
+    def test_interval_union_against_integer_cells(self):
+        code = examples('techniques/interval-merging.md')[0][0]
+        rng = random.Random(116)
+        for n in (0, 1, 5, 15):
+            intervals = [sorted([rng.randrange(-8, 9), rng.randrange(-8, 9)]) for _ in range(n)]
+            cells = {x for l, r in intervals for x in range(l, r)}
+            data = f'{n}\n' + ''.join(f'{l} {r}\n' for l, r in intervals)
+            result = execute(code, data).splitlines()
+            merged = [tuple(map(int, row.split())) for row in result[1:-1]]
+            self.assertEqual(int(result[0]), len(merged))
+            self.assertEqual(int(result[-1]), len(cells))
+            self.assertEqual({x for l, r in merged for x in range(l, r)}, cells)
+            self.assertTrue(all(l < r for l, r in merged))
+            self.assertTrue(all(merged[i][1] < merged[i + 1][0] for i in range(len(merged) - 1)))
 
 
 if __name__ == '__main__':

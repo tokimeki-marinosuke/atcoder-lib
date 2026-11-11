@@ -5,6 +5,8 @@
 
 [AtCoder・競技プログラミングの頻出技術 早見表](algorithms/common-techniques.md)に、問題の特徴から使う技術を選ぶ表と学習順序をまとめています。まず制約・更新の有無・単調性などを確認し、各解説へ進んでください。
 
+**茶色から緑色を目指す方へ：** [基礎4項目と組み合わせの学習順](learning-notes/brown-to-green.md)を用意しています。[連想配列](techniques/hash-maps-and-sets.md) → [座標圧縮](techniques/coordinate-compression.md) → [累積和](techniques/prefix-sums-and-imos.md) → [二分探索](learning-notes/02_binary_search.md)の順に、使い分けと境界条件を確認できます。
+
 ## 図から読む
 
 各解説の冒頭の「図でつかむ」で、**何をしたいか → 何を変えるか → 何が得られるか**を確認できます。図の具体例を見てから、本文の成立条件・計算量・実装へ進んでください。図はGitHub標準のMermaid表示に対応し、値や操作も文字で併記しています。
@@ -45,6 +47,9 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[同点処理](techniques/tie-breaking.md)|タプル比較・min/max/sorted・境界テスト|
 |[累積和・いもす法](techniques/prefix-sums-and-imos.md)|2次元累積和・区間加算の一括処理|
 |[しゃくとり・区間集計](techniques/sliding-window-and-counting.md)|重複禁止の窓・累積和と頻度辞書|
+|[連想配列・集合](techniques/hash-maps-and-sets.md)|dict・Counter・defaultdict・set、出現位置と二分探索|
+|[座標圧縮](techniques/coordinate-compression.md)|順位への変換・元の値への復元・使い分け|
+|[区間マージ](techniques/interval-merging.md)|和集合・被覆長・いもすや貪欲との違い|
 
 ## コンテスト振り返り一覧
 
