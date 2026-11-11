@@ -22,7 +22,6 @@ flowchart TD
 
 区間は原則として半開区間 `[l,r)` に統一します。空区間はl=r、長さはr-lです。累積和の基本コードは[既存の計算量ノート](../learning-notes/09_complexity.md)、更新が交互にある場合は[Fenwick木](../learning-notes/06_data_structures.md)・[セグメント木](../algorithms/segment-tree.md)を参照してください。
 
-
 ## 1次元累積和：区間和を引き算にする
 
 ```mermaid
@@ -32,7 +31,7 @@ flowchart LR
     C --> D["右までの和 - 左より前の和<br/>13 - 1 = 12"]
 ```
 
-入力はN Q、N個の整数、Q行のl r（0始まり、半開区間）。$S[0]=0$、$S[i+1]=S[i]+a[i]$ とすれば区間和は $S[r]-S[l]$。前処理 $O(N)$、各問 $O(1)$、空間 $O(N)$。負数でも利用できます。
+入力はN Q、N個の整数、Q行のl r（0始まり、半開区間）。`S[0]=0`、`S[i+1]=S[i]+a[i]` とすれば区間和は `S[r]-S[l]`。前処理 `O(N)`、各問 `O(1)`、空間 `O(N)`。負数でも利用できます。
 
 ```python
 from itertools import accumulate
@@ -74,7 +73,7 @@ for _ in range(q):
 
 ## 区間加算の一括処理
 
-入力はN Q、続くQ行がl r x（0始まり、$0\le l\le r\le N$）。初期値0のN要素へ加算後、全要素を出力します。負の加算も可能。時間 $O(N+Q)$、空間 $O(N)$。
+入力はN Q、続くQ行がl r x（0始まり、`0 ≤ l ≤ r ≤ N`）。初期値0のN要素へ加算後、全要素を出力します。負の加算も可能。時間 `O(N+Q)`、空間 `O(N)`。
 
 ```python
 import sys
@@ -112,13 +111,15 @@ print(*answer)
 
 `s[r][c]` を左上 `[0,r) × [0,c)` の和とすると、上と左を足して重複した左上を引きます。
 
-$$s[r+1][c+1]=a[r][c]+s[r][c+1]+s[r+1][c]-s[r][c]$$
+```text
+s[r+1][c+1]=a[r][c]+s[r][c+1]+s[r+1][c]-s[r][c]
+```
 
 長方形も包除原理で4か所だけ参照します。
 
 ## 長方形の和
 
-入力はH W、H行の配列、Q、Q行のr1 c1 r2 c2。範囲は半開区間。時間 $O(HW+Q)$、空間 $O(HW)$。
+入力はH W、H行の配列、Q、Q行のr1 c1 r2 c2。範囲は半開区間。時間 `O(HW+Q)`、空間 `O(HW)`。
 
 ```python
 import sys
