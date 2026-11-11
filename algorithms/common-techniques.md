@@ -20,6 +20,8 @@ flowchart TD
 
 ## 学習順序
 
+茶色から緑色を目指す場合は[基礎4項目を中心にした学習順](../learning-notes/brown-to-green.md)も参照してください。
+
 1. 入出力、全探索、計算量、list・dict・set、ソート。
 2. 累積和、二分探索、頻度集計、しゃくとり、貪欲、BFS/DFS。
 3. 基本DP、Union-Find、ヒープ、整数数学、bit全探索。
@@ -35,14 +37,15 @@ Nは配列長、V/Eは頂点数/辺数、Qは問い合わせ数、Wは容量、K
 |---|---|---|---|
 |入力が小さく全候補を試せる|全探索・順列全探索|O(N^2)、O(N!)など|[計算量](../learning-notes/09_complexity.md)、[bit演算](../learning-notes/08_bit.md)|
 |順序・順位・中央値を整理|ソート・key・安定性|O(N log N)|[ソート](sorting.md)|
-|異なる巨大値を添字にしたい|座標圧縮|O(N log N)|[ソートの座標圧縮](../learning-notes/01_sorting.md)|
+|異なる巨大値を添字にしたい|座標圧縮|O(N log N)|[座標圧縮と復元](../techniques/coordinate-compression.md)|
 |整列済み配列の位置、重複数|bisect_left/right|各O(log N)|[二分探索](../learning-notes/02_binary_search.md)|
 |答えの可否が単調|答えを二分探索|判定時間×O(log K)|[二分探索](../learning-notes/02_binary_search.md)|
 |静的な区間和・長方形和|累積和・2次元累積和|前処理後は各O(1)|[累積和](../techniques/prefix-sums-and-imos.md)|
 |区間へ一括加算、最後に読む|いもす法|O(N+Q)|[いもす法](../techniques/prefix-sums-and-imos.md)|
 |条件を満たす最長の連続区間|しゃくとり・頻度付き窓|多くは平均O(N)|[区間集計](../techniques/sliding-window-and-counting.md)|
 |負数ありの区間和がK|累積和と頻度辞書|平均O(N)|[区間集計](../techniques/sliding-window-and-counting.md)|
-|出現数・集合の所属・対応づけ|Counter・dict・set|各平均O(1)|[データ構造](../learning-notes/06_data_structures.md)|
+|出現数・集合の所属・対応づけ|Counter・dict・set|各平均O(1)|[連想配列・集合](../techniques/hash-maps-and-sets.md)|
+|重なる区間の和集合・総長|ソート＋区間マージ|O(N log N)|[区間マージ](../techniques/interval-merging.md)|
 |最小/最大を繰り返し取得|heapq、最大値は符号反転|各O(log N)|[データ構造](../learning-notes/06_data_structures.md)|
 |1要素を除いた最大値|上位2要素|前計算O(N)、各O(1)|[上位2要素](../techniques/top-two-values.md)|
 |一部だけ増加・独立ケース|差分更新・復元|変更数の総和に依存|[差分更新](../techniques/partial-updates.md)|
