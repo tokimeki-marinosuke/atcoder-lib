@@ -24,7 +24,7 @@ flowchart TD
 
 ## 1点代入と区間最小値
 
-入力はN Q、N個の整数、Q行のt x y。t=0はa[x]=y、t=1は[x,y)の最小値。0始まり。空区間はINFを出力。構築 $O(N)$、各操作 $O(\log N)$、空間 $O(N)$。Nは1以上。
+入力はN Q、N個の整数、Q行のt x y。t=0はa[x]=y、t=1は[x,y)の最小値。0始まり。空区間はINFを出力。構築 `O(N)`、各操作 `O(log N)`、空間 `O(N)`。Nは1以上。
 
 ```python
 import sys
