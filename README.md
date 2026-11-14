@@ -57,6 +57,7 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |資料|学んだこと|
 |---|---|
 |[ABC483 C — Second Choice Election](contests/ABC483-C.md)|上位2候補、票の差分更新、全体でO(N+M)となる根拠|
+|[C — Move One Card](contests/C-Move-One-Card.md)|最初・最後の不一致fir/finと、区間全体の左右1つずれの判定|
 
 ## 今後の追加方法
 
