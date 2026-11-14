@@ -18,6 +18,7 @@ PAGES = [
     'techniques/coordinate-compression.md',
     'techniques/interval-merging.md',
     'learning-notes/02_binary_search.md',
+    'techniques/count-distinct-left-moves.md',
 ]
 
 
@@ -48,7 +49,7 @@ class CommonTechniquesTests(unittest.TestCase):
                 with self.subTest(page=page, example=count):
                     self.assertEqual(execute(code, data), expected)
                 count += 1
-        self.assertEqual(count, 20)
+        self.assertEqual(count, 21)
 
     def test_markdown_links(self):
         for page in ROOT.rglob('*.md'):
