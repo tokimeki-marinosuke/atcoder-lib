@@ -1,6 +1,17 @@
 # atcoder-lib
 自分用atcoderで問題を解くときに役立つ知識詰め合わせセット
 
+## 技術名が分からないとき：困りごとから探す
+
+[困りごと索引](problem-solving-index.md)で、**問題の言葉 → 最初に試すこと → 具体的な教材**をたどれます。
+
+|今、何に困っている？|索引の入口|
+|---|---|
+|1個動かすとどこが変わる？ AをBにできる？|[操作・不一致区間・中央の確認](problem-solving-index.md#operation-and-comparison)|
+|同じ結果を何度も数えてしまう|[重複除去・代表・正規化](problem-solving-index.md#counting-and-duplicates)|
+|区間を何度も調べる・まとめて更新したい|[区間・範囲・更新](problem-solving-index.md#ranges-and-updates)|
+|候補をどう絞る？ 正しいか、間に合うか不安|[候補の選択](problem-solving-index.md#search-and-choice)・[検証と計算量](problem-solving-index.md#complexity-and-correctness)|
+
 ## 問題を解くときの入口
 
 [AtCoder・競技プログラミングの頻出技術 早見表](algorithms/common-techniques.md)に、問題の特徴から使う技術を選ぶ表と学習順序をまとめています。まず制約・更新の有無・単調性などを確認し、各解説へ進んでください。
@@ -65,6 +76,7 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 2. 公式問題文を確認し、提出コードがなければ推測で再現しません。ユーザー共有の本文などを用いた場合は出典と確認範囲を明記します。
 3. 再利用できる知識は既存の `algorithms/`・`techniques/`・`learning-notes/` を探して追記し、同じ解説の重複を避けます。
 4. 問題記録と技術資料を相互リンクし、この目次にも追加します。コードを単独で実行し、同点・最小入力などを検証します。
+5. [困りごと索引](problem-solving-index.md)の既存の行へ教材を対応付け、該当する困りごとがない場合は行を追加します。新規教材には索引への戻りリンクも付けます。
 
 各Pythonコードブロックは独立したプログラムです。入力を読む例は `python3 main.py < input.txt` で実行できます。固定データを含む例は `python3 main.py` で実行してください。
 
