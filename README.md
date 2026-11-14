@@ -50,6 +50,7 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[連想配列・集合](techniques/hash-maps-and-sets.md)|dict・Counter・defaultdict・set、出現位置と二分探索|
 |[座標圧縮](techniques/coordinate-compression.md)|順位への変換・元の値への復元・使い分け|
 |[区間マージ](techniques/interval-merging.md)|和集合・被覆長・いもすや貪欲との違い|
+|[1要素を左へ移動した結果の種類数](techniques/count-distinct-left-moves.md)|数え上げ・頻度管理・連続同値の代表化・正規化による重複除去|
 
 ## コンテスト振り返り一覧
 
