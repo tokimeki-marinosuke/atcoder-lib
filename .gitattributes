@@ -1,0 +1,2 @@
+# Git Bash で実行するスクリプトは CRLF にしない
+*.sh text eol=lf

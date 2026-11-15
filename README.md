@@ -77,6 +77,13 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 3. 再利用できる知識は既存の `algorithms/`・`techniques/`・`learning-notes/` を探して追記し、同じ解説の重複を避けます。
 4. 問題記録と技術資料を相互リンクし、この目次にも追加します。コードを単独で実行し、同点・最小入力などを検証します。
 5. [困りごと索引](problem-solving-index.md)の既存の行へ教材を対応付け、該当する困りごとがない場合は行を追加します。新規教材には索引への戻りリンクも付けます。
+6. 新しいファイルを作った場合は、`mkdocs.yml` の `nav` にも追加します。載せ忘れやリンク切れはサイトのビルドで失敗として検出されます。
+
+## サイトで読む
+
+`main` に反映すると、GitHub Actions が教材を [GitHub Pages](https://tokimeki-marinosuke.github.io/atcoder-lib/) へ公開します。図・検索・左側の目次付きで読めます。
+
+手元で確認するときは、`pip install -r requirements-docs.txt` の後、リポジトリ直下で `bash scripts/build_site.sh serve` を実行し、`http://127.0.0.1:8000` を開きます。
 
 各Pythonコードブロックは独立したプログラムです。入力を読む例は `python3 main.py < input.txt` で実行できます。固定データを含む例は `python3 main.py` で実行してください。
 
