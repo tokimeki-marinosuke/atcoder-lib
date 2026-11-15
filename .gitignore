@@ -1,0 +1,3 @@
+# MkDocs のビルド用コピーと生成サイト
+build/
+__pycache__/

@@ -1,0 +1,97 @@
+# GitHub Pages 用のサイト設定（MkDocs Material）
+# 教材のMarkdownは build/docs へコピーしてからビルドする（README「サイトで読む」参照）。
+site_name: atcoder-lib
+site_description: AtCoderで問題を解くときに役立つ知識詰め合わせセット（Python 3）
+site_url: https://tokimeki-marinosuke.github.io/atcoder-lib/
+repo_url: https://github.com/tokimeki-marinosuke/atcoder-lib
+repo_name: tokimeki-marinosuke/atcoder-lib
+edit_uri: blob/main/
+
+docs_dir: build/docs
+site_dir: build/site
+
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - toc.follow
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替え
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切り替え
+
+plugins:
+  - search:
+      lang: ja
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - md_in_html
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+# nav に載せ忘れた教材があると、strict ビルドで失敗させる
+validation:
+  nav:
+    omitted_files: warn
+
+nav:
+  - トップ: README.md
+  - 困りごと索引: problem-solving-index.md
+  - アルゴリズム:
+      - 頻出技術の早見表: algorithms/common-techniques.md
+      - ソート: algorithms/sorting.md
+      - 動的計画法: algorithms/dynamic-programming.md
+      - 計算量: algorithms/complexity.md
+      - セグメント木: algorithms/segment-tree.md
+      - グラフの典型: algorithms/graph-patterns.md
+      - 木とダブリング: algorithms/tree-and-doubling.md
+      - 文字列処理: algorithms/string-patterns.md
+  - テクニック:
+      - 最大値と2番目の最大値: techniques/top-two-values.md
+      - 差分更新: techniques/partial-updates.md
+      - 同点処理: techniques/tie-breaking.md
+      - 累積和・いもす法: techniques/prefix-sums-and-imos.md
+      - しゃくとり・区間集計: techniques/sliding-window-and-counting.md
+      - 連想配列・集合: techniques/hash-maps-and-sets.md
+      - 座標圧縮: techniques/coordinate-compression.md
+      - 区間マージ: techniques/interval-merging.md
+      - 1要素を左へ移動した結果の種類数: techniques/count-distinct-left-moves.md
+  - コンテスト振り返り:
+      - ABC483 C — Second Choice Election: contests/ABC483-C.md
+      - C — Move One Card: contests/C-Move-One-Card.md
+  - 学習ノート:
+      - learning-notes/README.md
+      - 茶色から緑色を目指す: learning-notes/brown-to-green.md
+      - 01 ソート: learning-notes/01_sorting.md
+      - 02 二分探索: learning-notes/02_binary_search.md
+      - 03 動的計画法: learning-notes/03_dp.md
+      - 04 貪欲法: learning-notes/04_greedy.md
+      - 05 グラフ探索: learning-notes/05_graph.md
+      - 06 データ構造: learning-notes/06_data_structures.md
+      - 07 数学: learning-notes/07_math.md
+      - 08 bit演算: learning-notes/08_bit.md
+      - 09 計算量: learning-notes/09_complexity.md
