@@ -18,6 +18,17 @@
 
 **茶色から緑色を目指す方へ：** [基礎4項目と組み合わせの学習順](learning-notes/brown-to-green.md)を用意しています。[連想配列](techniques/hash-maps-and-sets.md) → [座標圧縮](techniques/coordinate-compression.md) → [累積和](techniques/prefix-sums-and-imos.md) → [二分探索](learning-notes/02_binary_search.md)の順に、使い分けと境界条件を確認できます。
 
+## DFS・BFSを実践で使う
+
+[DFS・BFS実践コースの学習順](learning-notes/graph-search-roadmap.md)から、「何を頂点・辺・状態にするか」を考え、基本コードを問題に合わせて変形する練習ができます。
+
+|段階|資料|
+|---|---|
+|仕組みとモデル化|[基礎](learning-notes/05_graph.md) → [問題文からグラフへ](algorithms/dfs-bfs-modeling.md)|
+|目的に合わせて変更|[到達・成分・グリッド・経路・複数始点](algorithms/dfs-bfs-patterns.md)・[変更行の比較](algorithms/dfs-bfs-transformations.md)|
+|状態と探索の発展|[鍵・向き・0-1 BFS](algorithms/dfs-bfs-states.md)・[木・閉路・全探索・二部判定](algorithms/dfs-bfs-advanced.md)|
+|探索を割当に使う|[二部マッチング](algorithms/bipartite-matching.md) → [paiza S082のタイル敷き詰め](contests/paiza-S082.md)|
+
 ## 図から読む
 
 各解説の冒頭の「図でつかむ」で、**何をしたいか → 何を変えるか → 何が得られるか**を確認できます。図の具体例を見てから、本文の成立条件・計算量・実装へ進んでください。図はGitHub標準のMermaid表示に対応し、値や操作も文字で併記しています。
@@ -69,6 +80,7 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |---|---|
 |[ABC483 C — Second Choice Election](contests/ABC483-C.md)|上位2候補、票の差分更新、全体でO(N+M)となる根拠|
 |[C — Move One Card](contests/C-Move-One-Card.md)|最初・最後の不一致fir/finと、区間全体の左右1つずれの判定|
+|[paiza S082 — タイルの敷き詰め](contests/paiza-S082.md)|市松模様の二部グラフ・増加道・反復Hopcroft–Karp|
 
 ## 今後の追加方法
 

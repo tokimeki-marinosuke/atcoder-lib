@@ -75,10 +75,21 @@
 
 |困りごと・問題文の言葉|最初に試すこと → 考え方の名前|読む資料|
 |---|---|---|
-|マス目や街を、最小何回で移動できる？|全ての移動コストが1なら近い順に探索する → BFS|[グラフ探索](learning-notes/05_graph.md)|
+|グリッドで移動できるか調べたい|座標を頂点にし、壁ではない4近傍をその場で生成する → グリッド探索|[グラフへの変換](algorithms/dfs-bfs-modeling.md)・[グリッドの実装](algorithms/dfs-bfs-patterns.md#grid)|
+|最短何回で到達できる？ 実際の道順も欲しい|全移動が1ならBFS。初回発見時の親を記録する → 最短距離・経路復元|[基礎の追跡](learning-notes/05_graph.md)・[経路復元](algorithms/dfs-bfs-patterns.md#path)|
+|全部のグループ・島を数えたい|未訪問の頂点から探索を始めた回数を数える → 連結成分|[連結成分](algorithms/dfs-bfs-patterns.md#components)|
+|複数の火元や店から最も近い距離を知りたい|全始点を同時に距離0にする → 複数始点BFS|[複数始点BFS](algorithms/dfs-bfs-patterns.md#multi-source)|
+|位置以外に鍵・向き・残り回数も管理したい|同じ位置でも未来の行動が違えば別頂点 → 状態BFS|[状態の設計](algorithms/dfs-bfs-modeling.md)・[鍵付きの実装](algorithms/dfs-bfs-states.md#key-state)|
+|無料の移動と有料の移動、方向変更だけを最小化したい|コストが0/1なら先頭と末尾を使い分ける → 0-1 BFS|[0-1 BFS](algorithms/dfs-bfs-states.md#zero-one)・[位置＋方向](algorithms/dfs-bfs-states.md#direction-state)|
 |道ごとに移動コストが違う|非負重みか確認し、暫定距離の小さい順に処理する → Dijkstra|[グラフ探索](learning-notes/05_graph.md)|
 |道を追加しながら、同じグループか調べたい|連結成分をまとめる → Union-Find|[データ構造](learning-notes/06_data_structures.md)|
 |前提作業があり、処理順が分からない|前提が残っていない作業から処理する → トポロジカルソート|[グラフの典型](algorithms/graph-patterns.md)|
+|処理が循環していないか調べたい|未訪問・探索中・完了を分ける → 有向閉路検出|[3色DFS](algorithms/dfs-bfs-advanced.md#cycle)|
+|子孫を全部数えたい・子の結果から親を計算したい|子の終了後に集計する → 帰りがけと部分木|[木のDFS](algorithms/dfs-bfs-advanced.md#tree)|
+|同じ場所を使わない全ての経路を試したい|現在の経路だけに印を付け、戻るときに取り消す → バックトラッキング|[全探索のDFS](algorithms/dfs-bfs-advanced.md#backtracking)|
+|隣り合うものを違う2グループへ分けたい|辺の両端を反対色にする → 二部判定|[二部グラフ判定](algorithms/dfs-bfs-advanced.md#bipartite)|
+|すでに決めた組み合わせを変更して割当数を増やしたい|空いている相手まで交互にたどり、ペアを反転する → 増加道・最大マッチング|[基本DFSマッチング](algorithms/bipartite-matching.md#basic-matching)|
+|空きマスを2マスずつ、なるべく多く埋めたい|市松模様で二部グラフへ。マスを重複使用しない辺を選ぶ → 最大マッチング|[paiza S082](contests/paiza-S082.md)・[高速法](algorithms/bipartite-matching.md#hopcroft-karp)|
 |同じ部分問題を何度も解いている|状態・初期値・遷移を決めて答えを再利用する → DP|[DPの入口](algorithms/dynamic-programming.md)・[DP詳説](learning-notes/03_dp.md)|
 |よさそうなものから選んでいいか分からない|その選択へ交換しても損しないか説明する → 貪欲法・交換法|[貪欲法](learning-notes/04_greedy.md)|
 |同じ移動を大量に繰り返す・木の2点距離が欲しい|2のべき乗回の移動を前計算する → ダブリング・LCA|[木とダブリング](algorithms/tree-and-doubling.md)|

@@ -61,6 +61,14 @@ validation:
 nav:
   - トップ: README.md
   - 困りごと索引: problem-solving-index.md
+  - DFS・BFS実践コース:
+      - 学習順序とLevel別演習: learning-notes/graph-search-roadmap.md
+      - 問題文からグラフへ: algorithms/dfs-bfs-modeling.md
+      - 到達・成分・経路・複数始点: algorithms/dfs-bfs-patterns.md
+      - どの行を変えるか: algorithms/dfs-bfs-transformations.md
+      - 状態BFS・0-1 BFS: algorithms/dfs-bfs-states.md
+      - 木・閉路・全探索・二部判定: algorithms/dfs-bfs-advanced.md
+      - 二部マッチング: algorithms/bipartite-matching.md
   - アルゴリズム:
       - 頻出技術の早見表: algorithms/common-techniques.md
       - ソート: algorithms/sorting.md
@@ -83,6 +91,7 @@ nav:
   - コンテスト振り返り:
       - ABC483 C — Second Choice Election: contests/ABC483-C.md
       - C — Move One Card: contests/C-Move-One-Card.md
+      - paiza S082 — タイルの敷き詰め: contests/paiza-S082.md
   - 学習ノート:
       - learning-notes/README.md
       - 茶色から緑色を目指す: learning-notes/brown-to-green.md

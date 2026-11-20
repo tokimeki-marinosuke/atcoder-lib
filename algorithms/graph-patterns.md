@@ -13,7 +13,7 @@ flowchart LR
 
 ## 基本からの選択
 
-[既存のグラフ資料](../learning-notes/05_graph.md)にBFS・DFS・Dijkstraの実装があります。全辺が1ならBFS、非負重みならDijkstra。重み0/1だけならdequeで0の辺を先頭、1の辺を末尾に入れる0-1 BFSでO(V+E)時間にできます。
+[グラフの基礎](../learning-notes/05_graph.md)にBFS・DFS・Dijkstraの実装があります。全辺が1ならBFS、非負重みならDijkstra。[0-1 BFS](dfs-bfs-states.md#zero-one)には、重み0/1の実装と更新理由をまとめています。グラフへの変換やテンプレートの変形を練習したい場合は[DFS・BFS実践コース](../learning-notes/graph-search-roadmap.md)へ進んでください。このページは依存順・全点対距離・最小全域木を扱います。
 
 ## トポロジカルソート
 
@@ -71,7 +71,7 @@ else:
 `dist[i][j]`を距離とし、使ってよい中継点を1つずつ増やします。kを処理する前に「0〜k-1だけを中継点に使った最短距離」が計算済みなら、kを使う経路と使わない経路の小さい方に更新できます。
 
 ```text
-d[i][j] ≤ ftarrowmin(d[i][j],d[i][k]+d[k][j])
+d[i][j] = min(d[i][j], d[i][k] + d[k][j])
 ```
 
 **kのループを最も外側**にします。時間O(V^3)、空間O(V^2)のため、PythonではVが数百でも制限時間をよく確認します。
