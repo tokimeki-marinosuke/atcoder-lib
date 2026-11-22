@@ -73,6 +73,7 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[座標圧縮](techniques/coordinate-compression.md)|順位への変換・元の値への復元・使い分け|
 |[区間マージ](techniques/interval-merging.md)|和集合・被覆長・いもすや貪欲との違い|
 |[1要素を左へ移動した結果の種類数](techniques/count-distinct-left-moves.md)|数え上げ・頻度管理・連続同値の代表化・正規化による重複除去|
+|[任意の目標文字列の部分列カウント](techniques/subsequence-counting.md)|dp[0]=1・接頭辞の方法数・逆順更新で同じ文字の二重使用を防ぐ|
 
 ## コンテスト振り返り一覧
 
@@ -81,6 +82,8 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[ABC483 C — Second Choice Election](contests/ABC483-C.md)|上位2候補、票の差分更新、全体でO(N+M)となる根拠|
 |[C — Move One Card](contests/C-Move-One-Card.md)|最初・最後の不一致fir/finと、区間全体の左右1つずれの判定|
 |[paiza S082 — タイルの敷き詰め](contests/paiza-S082.md)|市松模様の二部グラフ・増加道・反復Hopcroft–Karp|
+|[paiza B178 — 温度分布マップ](contests/paiza-B178.md)|同時更新シミュレーションから多始点BFSへ・0℃と番兵の区別|
+|[paiza B185 — L・O・V・E](contests/paiza-B185.md)|位置の全探索から部分列DPへ・途中の方法数を再利用|
 
 ## 今後の追加方法
 

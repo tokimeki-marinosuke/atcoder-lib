@@ -48,6 +48,7 @@
 |---|---|---|
 |同じ配列の区間和を何度も足し直している|左からの合計を作り、右−左で答える → 累積和|[累積和・いもす法](techniques/prefix-sums-and-imos.md)|
 |範囲内の全要素へ、何度も加算している|更新を終えてから読むなら両端だけ記録する → いもす法|[累積和・いもす法](techniques/prefix-sums-and-imos.md)|
+|全マスを同時に更新したい・新しい値をすぐ使ってよいか迷う|更新前後を分ける。確定時刻が層になるなら、自分より前の層だけ使う → 二重バッファ・多始点BFS|[B178のシミュレーションとBFS](contests/paiza-B178.md)|
 |条件を満たす最長の連続区間が欲しい|右端を伸ばし、違反が消えるまで左端を進められるか考える → しゃくとり法|[しゃくとり・区間集計](techniques/sliding-window-and-counting.md)|
 |負数も含む配列で、和がKの区間を数えたい|過去の累積和の出現回数を持つ → 累積和＋辞書|[しゃくとり・区間集計](techniques/sliding-window-and-counting.md)|
 |重なった時間・範囲の総長が欲しい|開始位置順に見て重なるものを併合する → 区間マージ|[区間マージ](techniques/interval-merging.md)|
@@ -78,7 +79,7 @@
 |グリッドで移動できるか調べたい|座標を頂点にし、壁ではない4近傍をその場で生成する → グリッド探索|[グラフへの変換](algorithms/dfs-bfs-modeling.md)・[グリッドの実装](algorithms/dfs-bfs-patterns.md#grid)|
 |最短何回で到達できる？ 実際の道順も欲しい|全移動が1ならBFS。初回発見時の親を記録する → 最短距離・経路復元|[基礎の追跡](learning-notes/05_graph.md)・[経路復元](algorithms/dfs-bfs-patterns.md#path)|
 |全部のグループ・島を数えたい|未訪問の頂点から探索を始めた回数を数える → 連結成分|[連結成分](algorithms/dfs-bfs-patterns.md#components)|
-|複数の火元や店から最も近い距離を知りたい|全始点を同時に距離0にする → 複数始点BFS|[複数始点BFS](algorithms/dfs-bfs-patterns.md#multi-source)|
+|複数の火元や店から最も近い距離を知りたい|全始点を同時に距離0にする → 複数始点BFS|[複数始点BFS](algorithms/dfs-bfs-patterns.md#multi-source)・[温度分布の確定時刻](contests/paiza-B178.md)|
 |位置以外に鍵・向き・残り回数も管理したい|同じ位置でも未来の行動が違えば別頂点 → 状態BFS|[状態の設計](algorithms/dfs-bfs-modeling.md)・[鍵付きの実装](algorithms/dfs-bfs-states.md#key-state)|
 |無料の移動と有料の移動、方向変更だけを最小化したい|コストが0/1なら先頭と末尾を使い分ける → 0-1 BFS|[0-1 BFS](algorithms/dfs-bfs-states.md#zero-one)・[位置＋方向](algorithms/dfs-bfs-states.md#direction-state)|
 |道ごとに移動コストが違う|非負重みか確認し、暫定距離の小さい順に処理する → Dijkstra|[グラフ探索](learning-notes/05_graph.md)|
@@ -91,6 +92,7 @@
 |すでに決めた組み合わせを変更して割当数を増やしたい|空いている相手まで交互にたどり、ペアを反転する → 増加道・最大マッチング|[基本DFSマッチング](algorithms/bipartite-matching.md#basic-matching)|
 |空きマスを2マスずつ、なるべく多く埋めたい|市松模様で二部グラフへ。マスを重複使用しない辺を選ぶ → 最大マッチング|[paiza S082](contests/paiza-S082.md)・[高速法](algorithms/bipartite-matching.md#hopcroft-karp)|
 |同じ部分問題を何度も解いている|状態・初期値・遷移を決めて答えを再利用する → DP|[DPの入口](algorithms/dynamic-programming.md)・[DP詳説](learning-notes/03_dp.md)|
+|文字を飛び飛びに選ぶ方法を全て試すと重複計算が多い|途中まで目標を作る方法数を保存する → 部分列カウントDP|[B185の全探索からDPへ](contests/paiza-B185.md)・[任意の目標Pと逆順更新](techniques/subsequence-counting.md)|
 |よさそうなものから選んでいいか分からない|その選択へ交換しても損しないか説明する → 貪欲法・交換法|[貪欲法](learning-notes/04_greedy.md)|
 |同じ移動を大量に繰り返す・木の2点距離が欲しい|2のべき乗回の移動を前計算する → ダブリング・LCA|[木とダブリング](algorithms/tree-and-doubling.md)|
 |文字の連続やパターンの出現を調べたい|連続区間の集約か、一致位置の探索かを分ける → ランレングス・Z-algorithm|[文字列処理](algorithms/string-patterns.md)|

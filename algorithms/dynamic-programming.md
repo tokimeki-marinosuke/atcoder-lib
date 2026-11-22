@@ -59,3 +59,5 @@ print(dp[n])
 「重さがちょうどw」の状態なら未到達を負の無限大にする必要があり、上記の「w以下」と初期条件が異なります。配列の値の意味から初期化を決めましょう。
 
 関連：[計算量](complexity.md)・[既存ノートの学習順序](../learning-notes/README.md)・[目次](../README.md)
+
+全探索からDPへ変える具体例は[paiza B185：LOVEの部分列カウント](../contests/paiza-B185.md)、更新順の一般化は[任意の目標Pの数え上げ](../techniques/subsequence-counting.md)へ進んでください。
