@@ -52,7 +52,7 @@
 |条件を満たす最長の連続区間が欲しい|右端を伸ばし、違反が消えるまで左端を進められるか考える → しゃくとり法|[しゃくとり・区間集計](techniques/sliding-window-and-counting.md)|
 |負数も含む配列で、和がKの区間を数えたい|過去の累積和の出現回数を持つ → 累積和＋辞書|[しゃくとり・区間集計](techniques/sliding-window-and-counting.md)|
 |重なった時間・範囲の総長が欲しい|開始位置順に見て重なるものを併合する → 区間マージ|[区間マージ](techniques/interval-merging.md)|
-|座標や値が大きすぎて配列を作れない|大小関係だけで足りるか確認し、小さい順位へ変換する → 座標圧縮。距離は元の値で扱う|[座標圧縮](techniques/coordinate-compression.md)|
+|座標や値が大きすぎて配列を作れない|大小関係だけで足りるか確認し、小さい順位へ変換する → 座標圧縮。距離は元の値で扱う|[座標圧縮](techniques/coordinate-compression.md)・[ABC213 Cの行列圧縮](contests/ABC213-C.md)|
 |配列の変更と区間集計が交互に来る|必要な演算を確認する → 区間和ならFenwick木、最小値などならセグメント木|[データ構造](learning-notes/06_data_structures.md)・[セグメント木](algorithms/segment-tree.md)|
 
 <a id="search-and-choice"></a>
@@ -64,7 +64,7 @@
 |困りごと・問題文の言葉|最初に試すこと → 考え方の名前|読む資料|
 |---|---|---|
 |毎回、配列の中を探している|存在だけか、個数や位置も必要かを分ける → set・dict・逆引き|[連想配列・集合](techniques/hash-maps-and-sets.md)|
-|ある値以上・以下、予算内で何個までか知りたい|順序や判定が単調かを確認する → ソート・二分探索・累積和との組み合わせ|[ソート](algorithms/sorting.md)・[二分探索](learning-notes/02_binary_search.md)|
+|ある値以上・以下、予算内で何個までか知りたい|順序や判定が単調かを確認する → ソート・二分探索・累積和との組み合わせ|[ソート](algorithms/sorting.md)・[二分探索](learning-notes/02_binary_search.md)・[ABC231 Cの個数取得](contests/ABC231-C.md)|
 |1位を除外した後の最大値を毎回探している|元の1位と2位を保持する → 上位2要素|[最大値と2番目の最大値](techniques/top-two-values.md)|
 |一部の候補だけ変わるのに全員を再計算している|基準状態を持ち、変更先だけ見る条件を確認する → 差分更新・復元|[差分更新](techniques/partial-updates.md)・[ABC483 C](contests/ABC483-C.md)|
 |同点のときに答えが変わる|優先条件を順番に並べる → タプル比較・同点処理|[同点処理](techniques/tie-breaking.md)|
@@ -83,7 +83,9 @@
 |位置以外に鍵・向き・残り回数も管理したい|同じ位置でも未来の行動が違えば別頂点 → 状態BFS|[状態の設計](algorithms/dfs-bfs-modeling.md)・[鍵付きの実装](algorithms/dfs-bfs-states.md#key-state)|
 |無料の移動と有料の移動、方向変更だけを最小化したい|コストが0/1なら先頭と末尾を使い分ける → 0-1 BFS|[0-1 BFS](algorithms/dfs-bfs-states.md#zero-one)・[位置＋方向](algorithms/dfs-bfs-states.md#direction-state)|
 |道ごとに移動コストが違う|非負重みか確認し、暫定距離の小さい順に処理する → Dijkstra|[グラフ探索](learning-notes/05_graph.md)|
-|道を追加しながら、同じグループか調べたい|連結成分をまとめる → Union-Find|[データ構造](learning-notes/06_data_structures.md)|
+|辺の入力はないが、距離などの条件を満たす相手へ広がる|その場で全候補を調べ、未訪問の隣接先を登録する → 条件で辺を生成するBFS|[ABC304 C — Virus](contests/ABC304-C.md)|
+|道を追加しながら、同じグループか調べたい|連結成分をまとめる → Union-Find|[標準DSU](algorithms/union-find.md)・[ABC284 Cの成分数](contests/ABC284-C.md)|
+|辺の削除後の連結性を何度も調べたい|全クエリが分かるなら逆順で追加へ変える。追加削除が混在するならRollbackなどを検討|[Union-Findの削除・逆順・Rollback](algorithms/union-find.md)|
 |前提作業があり、処理順が分からない|前提が残っていない作業から処理する → トポロジカルソート|[グラフの典型](algorithms/graph-patterns.md)|
 |処理が循環していないか調べたい|未訪問・探索中・完了を分ける → 有向閉路検出|[3色DFS](algorithms/dfs-bfs-advanced.md#cycle)|
 |子孫を全部数えたい・子の結果から親を計算したい|子の終了後に集計する → 帰りがけと部分木|[木のDFS](algorithms/dfs-bfs-advanced.md#tree)|
@@ -92,6 +94,7 @@
 |すでに決めた組み合わせを変更して割当数を増やしたい|空いている相手まで交互にたどり、ペアを反転する → 増加道・最大マッチング|[基本DFSマッチング](algorithms/bipartite-matching.md#basic-matching)|
 |空きマスを2マスずつ、なるべく多く埋めたい|市松模様で二部グラフへ。マスを重複使用しない辺を選ぶ → 最大マッチング|[paiza S082](contests/paiza-S082.md)・[高速法](algorithms/bipartite-matching.md#hopcroft-karp)|
 |同じ部分問題を何度も解いている|状態・初期値・遷移を決めて答えを再利用する → DP|[DPの入口](algorithms/dynamic-programming.md)・[DP詳説](learning-notes/03_dp.md)|
+|1回の操作のはずが、同じターンに状態を何度も使ってしまう|段階iと位置jを定義し、読み取り前状態と書き込み先を分ける → 到達可能性DP|[ABC240 Cの2配列・set DP](contests/ABC240-C.md)|
 |文字を飛び飛びに選ぶ方法を全て試すと重複計算が多い|途中まで目標を作る方法数を保存する → 部分列カウントDP|[B185の全探索からDPへ](contests/paiza-B185.md)・[任意の目標Pと逆順更新](techniques/subsequence-counting.md)|
 |よさそうなものから選んでいいか分からない|その選択へ交換しても損しないか説明する → 貪欲法・交換法|[貪欲法](learning-notes/04_greedy.md)|
 |同じ移動を大量に繰り返す・木の2点距離が欲しい|2のべき乗回の移動を前計算する → ダブリング・LCA|[木とダブリング](algorithms/tree-and-doubling.md)|
