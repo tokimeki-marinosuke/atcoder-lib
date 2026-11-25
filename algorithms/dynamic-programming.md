@@ -61,3 +61,5 @@ print(dp[n])
 関連：[計算量](complexity.md)・[既存ノートの学習順序](../learning-notes/README.md)・[目次](../README.md)
 
 全探索からDPへ変える具体例は[paiza B185：LOVEの部分列カウント](../contests/paiza-B185.md)、更新順の一般化は[任意の目標Pの数え上げ](../techniques/subsequence-counting.md)へ進んでください。
+
+「方法数」ではなく「到達できるか」を統合する例は[ABC240 Cの到達可能性DP](../contests/ABC240-C.md)。更新前後の分離、setとの使い分け、2次元からのメモリ圧縮を比較できます。

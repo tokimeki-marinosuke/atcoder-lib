@@ -65,6 +65,8 @@ print(*heapq.nlargest(2, a))  # 重複も個別の要素として扱う
 
 ## Union-Findの仕組み
 
+[Union-Findの詳説と標準DSU](../algorithms/union-find.md)には、find/union/same/size、成分数、非根を直接つなぐ反例、削除を逆順に戻す応用、Rollbackの概要をまとめています。[ABC284 Cの学習記録](../contests/ABC284-C.md)から具体的な成分数の数え方へ進めます。
+
 各頂点は親を持ち、根が連結成分の代表です。findで根までたどった道を短くする「経路圧縮」と、小さい木を大きい木につなぐ「サイズ併合」を組み合わせます。辺の削除や最短距離の計算はできません。
 
 ### Union-Findによる連結判定

@@ -54,6 +54,7 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[動的計画法](algorithms/dynamic-programming.md)|状態・初期条件・遷移・フィボナッチ・ナップサック|
 |[計算量](algorithms/complexity.md)|NとMの違い・二重ループの総処理回数|
 |[セグメント木](algorithms/segment-tree.md)|1点変更・区間最小値・成立する演算|
+|[Union-Find](algorithms/union-find.md)|根同士の結合・標準DSU・成分数・逆順処理・Rollbackの概要|
 |[グラフの典型](algorithms/graph-patterns.md)|トポロジカルソート・Warshall–Floyd・Kruskalの考え方|
 |[木とダブリング](algorithms/tree-and-doubling.md)|K回移動・最小共通祖先LCA・木の距離|
 |[文字列処理](algorithms/string-patterns.md)|標準機能・ランレングス圧縮・Z-algorithm|
@@ -84,6 +85,11 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[paiza S082 — タイルの敷き詰め](contests/paiza-S082.md)|市松模様の二部グラフ・増加道・反復Hopcroft–Karp|
 |[paiza B178 — 温度分布マップ](contests/paiza-B178.md)|同時更新シミュレーションから多始点BFSへ・0℃と番兵の区別|
 |[paiza B185 — L・O・V・E](contests/paiza-B185.md)|位置の全探索から部分列DPへ・途中の方法数を再利用|
+|[ABC231 C — Counting 2](contests/ABC231-C.md)|ソートだけでなく境界取得を二分探索へ変え、条件を満たす個数を求める|
+|[ABC213 C — Reorder Cards](contests/ABC213-C.md)|空行・空列の削除を、行と列の独立した座標圧縮へ置き換える|
+|[ABC284 C — Count Connected Components](contests/ABC284-C.md)|根の種類と結合成功回数から連結成分数を管理する|
+|[ABC304 C — Virus](contests/ABC304-C.md)|距離条件で辺をその場で作り、二次感染以降もBFSでたどる|
+|[ABC240 C — Jumping Takahashi](contests/ABC240-C.md)|ジャンプ回数と位置を状態へ統合し、更新前後を分けるDP|
 
 ## 今後の追加方法
 

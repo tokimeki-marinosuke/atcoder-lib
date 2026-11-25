@@ -181,6 +181,8 @@ for _ in range(q):
 
 ## 練習問題
 
+[ABC231 Cの学習記録](../contests/ABC231-C.md)では、ソート後も線形探索してTLEになった点から、境界取得へ切り替える理由を説明しています。x以上の個数は `len(A)-bisect_left(A,x)`。4種類の比較条件の個数と、累積和を組み合わせた合計の取得も確認できます。
+
 - [abc146_c：予算以内の最大整数を二分探索](https://atcoder.jp/contests/abc146/tasks/abc146_c)
 - [abc061_c：ソートと累積個数で順位を探す](https://atcoder.jp/contests/abc061/tasks/abc061_c)
 

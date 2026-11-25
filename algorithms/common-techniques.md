@@ -61,7 +61,7 @@ Nは配列長、V/Eは頂点数/辺数、Qは問い合わせ数、Wは容量、K
 |辺の重みが0/1だけ|0-1 BFS|O(V+E)|[グラフの典型](graph-patterns.md)|
 |頂点数が小さく全点対距離が必要|Warshall–Floyd|O(V^3)|[グラフの典型](graph-patterns.md)|
 |前提作業・依存順・有向閉路|トポロジカルソート|O(V+E)|[グラフの典型](graph-patterns.md)|
-|辺追加と連結性の問い合わせ|Union-Find|各償却O(α(V))|[データ構造](../learning-notes/06_data_structures.md)|
+|辺追加と連結性の問い合わせ|Union-Find|各償却O(α(V))|[標準DSUと成分数・削除への応用](union-find.md)|
 |無向グラフを最小費用で全接続|Kruskal・Union-Find|辺ソートなどO(E log E)|[グラフの典型](graph-patterns.md)|
 |1点加算・区間和|Fenwick木|各O(log N)|[データ構造](../learning-notes/06_data_structures.md)|
 |1点変更・区間最小/最大など|セグメント木|各O(log N)|[セグメント木](segment-tree.md)|
