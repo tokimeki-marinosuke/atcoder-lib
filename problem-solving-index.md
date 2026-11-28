@@ -66,8 +66,11 @@
 |毎回、配列の中を探している|存在だけか、個数や位置も必要かを分ける → set・dict・逆引き|[連想配列・集合](techniques/hash-maps-and-sets.md)|
 |ある値以上・以下、予算内で何個までか知りたい|順序や判定が単調かを確認する → ソート・二分探索・累積和との組み合わせ|[ソート](algorithms/sorting.md)・[二分探索](learning-notes/02_binary_search.md)・[ABC231 Cの個数取得](contests/ABC231-C.md)|
 |1位を除外した後の最大値を毎回探している|元の1位と2位を保持する → 上位2要素|[最大値と2番目の最大値](techniques/top-two-values.md)|
-|一部の候補だけ変わるのに全員を再計算している|基準状態を持ち、変更先だけ見る条件を確認する → 差分更新・復元|[差分更新](techniques/partial-updates.md)・[ABC483 C](contests/ABC483-C.md)|
-|同点のときに答えが変わる|優先条件を順番に並べる → タプル比較・同点処理|[同点処理](techniques/tie-breaking.md)|
+|一部の候補だけ変わるのに全員を再計算している|基準状態を持ち、変更先だけ見る条件を確認する → 差分更新・復元|[差分更新](techniques/partial-updates.md)・[ABC483 C](contests/ABC483-C.md)・[分類の最頻値を追加先だけで更新](contests/campus-2026-11-28/data-classification.md)|
+|同点のときに答えが変わる|優先条件を順番に並べる → タプル比較・同点処理|[同点処理](techniques/tie-breaking.md)・[距離と頻度の同点処理](contests/campus-2026-11-28/data-classification.md)|
+|何秒後に目標回数へ届く？ 配列がないので探せない|累計回数を式にし、未達→到達の境界を探す → 答えの二分探索|[ボタン押しロボット](contests/campus-2026-11-28/button-robots.md)・[汎用関数](templates/README.md)|
+|同じ対象について、近い点をK個選ぶ質問が何度も来る|一度ソートし、すべての接頭辞の答えを保存する → 事前計算|[Q4：データの分類](contests/campus-2026-11-28/data-classification.md)|
+|時間が重ならない仕事をできるだけ多く選びたい|終了時刻順に選ぶ。端点も重なるか確認する → 区間スケジューリング|[閉区間の解説と反例](contests/campus-2026-11-28/task-scheduling.md)・[テンプレート](templates/README.md)|
 |最小値・最大値を取り出し続けたい|先頭だけを素早く管理する → ヒープ|[データ構造](learning-notes/06_data_structures.md)|
 
 <a id="graphs-and-states"></a>
@@ -84,6 +87,7 @@
 |無料の移動と有料の移動、方向変更だけを最小化したい|コストが0/1なら先頭と末尾を使い分ける → 0-1 BFS|[0-1 BFS](algorithms/dfs-bfs-states.md#zero-one)・[位置＋方向](algorithms/dfs-bfs-states.md#direction-state)|
 |道ごとに移動コストが違う|非負重みか確認し、暫定距離の小さい順に処理する → Dijkstra|[グラフ探索](learning-notes/05_graph.md)|
 |辺の入力はないが、距離などの条件を満たす相手へ広がる|その場で全候補を調べ、未訪問の隣接先を登録する → 条件で辺を生成するBFS|[ABC304 C — Virus](contests/ABC304-C.md)|
+|所属者と非所属者を結ぶ辺の最大値を知りたい|最終所属を記録して、状態の違う両端の辺を走査する → 辺リスト・頂点状態|[村人の友好関係](contests/campus-2026-11-28/villager-friendship.md)|
 |道を追加しながら、同じグループか調べたい|連結成分をまとめる → Union-Find|[標準DSU](algorithms/union-find.md)・[ABC284 Cの成分数](contests/ABC284-C.md)|
 |辺の削除後の連結性を何度も調べたい|全クエリが分かるなら逆順で追加へ変える。追加削除が混在するならRollbackなどを検討|[Union-Findの削除・逆順・Rollback](algorithms/union-find.md)|
 |前提作業があり、処理順が分からない|前提が残っていない作業から処理する → トポロジカルソート|[グラフの典型](algorithms/graph-patterns.md)|
@@ -96,7 +100,7 @@
 |同じ部分問題を何度も解いている|状態・初期値・遷移を決めて答えを再利用する → DP|[DPの入口](algorithms/dynamic-programming.md)・[DP詳説](learning-notes/03_dp.md)|
 |1回の操作のはずが、同じターンに状態を何度も使ってしまう|段階iと位置jを定義し、読み取り前状態と書き込み先を分ける → 到達可能性DP|[ABC240 Cの2配列・set DP](contests/ABC240-C.md)|
 |文字を飛び飛びに選ぶ方法を全て試すと重複計算が多い|途中まで目標を作る方法数を保存する → 部分列カウントDP|[B185の全探索からDPへ](contests/paiza-B185.md)・[任意の目標Pと逆順更新](techniques/subsequence-counting.md)|
-|よさそうなものから選んでいいか分からない|その選択へ交換しても損しないか説明する → 貪欲法・交換法|[貪欲法](learning-notes/04_greedy.md)|
+|よさそうなものから選んでいいか分からない|その選択へ交換しても損しないか説明する → 貪欲法・交換法|[貪欲法](learning-notes/04_greedy.md)・[閉区間の仕事を選ぶ交換法](contests/campus-2026-11-28/task-scheduling.md)|
 |同じ移動を大量に繰り返す・木の2点距離が欲しい|2のべき乗回の移動を前計算する → ダブリング・LCA|[木とダブリング](algorithms/tree-and-doubling.md)|
 |文字の連続やパターンの出現を調べたい|連続区間の集約か、一致位置の探索かを分ける → ランレングス・Z-algorithm|[文字列処理](algorithms/string-patterns.md)|
 |約数・倍数・素数・大きな数の余りを扱う|整数の性質で調べる数を減らす → GCD・篩・剰余|[数学](learning-notes/07_math.md)|

@@ -187,3 +187,7 @@ for _ in range(q):
 - [abc061_c：ソートと累積個数で順位を探す](https://atcoder.jp/contests/abc061/tasks/abc061_c)
 
 [目次へ](README.md)
+
+## 配列がない問題で境界を探す
+
+[ボタン押しロボット](../contests/campus-2026-11-28/button-robots.md)では、時刻から累計回数を計算し、目標に届く最小時刻を探します。時刻を列挙せず、単調な判定関数を使う例です。[めぐる式の汎用関数](../templates/README.md)も参照してください。

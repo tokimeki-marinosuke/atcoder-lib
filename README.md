@@ -76,10 +76,15 @@ AtCoderで学んだアルゴリズムや、解けなかった問題から得た�
 |[1要素を左へ移動した結果の種類数](techniques/count-distinct-left-moves.md)|数え上げ・頻度管理・連続同値の代表化・正規化による重複除去|
 |[任意の目標文字列の部分列カウント](techniques/subsequence-counting.md)|dp[0]=1・接頭辞の方法数・逆順更新で同じ文字の二重使用を防ぐ|
 
+## 再利用用コード
+
+[Pythonテンプレートと使用例](templates/README.md)：区間スケジューリング・答えの二分探索・接頭辞の最頻値更新。
+
 ## コンテスト振り返り一覧
 
 |資料|学んだこと|
 |---|---|
+|[学内コンテスト 2026年11月28日](contests/campus-2026-11-28/README.md)|4問の復習：辺と所属状態・閉区間の貪欲・分類の事前計算・時刻の二分探索|
 |[ABC483 C — Second Choice Election](contests/ABC483-C.md)|上位2候補、票の差分更新、全体でO(N+M)となる根拠|
 |[C — Move One Card](contests/C-Move-One-Card.md)|最初・最後の不一致fir/finと、区間全体の左右1つずれの判定|
 |[paiza S082 — タイルの敷き詰め](contests/paiza-S082.md)|市松模様の二部グラフ・増加道・反復Hopcroft–Karp|

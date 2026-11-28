@@ -69,3 +69,7 @@ print(answer)
 - [abc160_e：色制約と交換を考える](https://atcoder.jp/contests/abc160/tasks/abc160_e)
 
 [目次へ](README.md)
+
+## 閉区間の仕事へ応用する
+
+このページの例は半開区間。開始・終了も使用する閉区間では `start > last_end` が必要です。[学内コンテストの仕事選択](../contests/campus-2026-11-28/task-scheduling.md)で交換法・終了時刻の重複・反例を確認し、[再利用用関数](../templates/README.md)で境界を切り替えられます。

@@ -9,7 +9,7 @@ rm -rf build/docs
 mkdir -p build/docs
 cp README.md problem-solving-index.md build/docs/
 # tests/ は教材からリンクされているテストコードとして同梱する
-cp -r algorithms techniques contests learning-notes tests build/docs/
+cp -r algorithms techniques contests learning-notes tests templates build/docs/
 
 if [ "${1:-build}" = "serve" ]; then
   python -m mkdocs serve

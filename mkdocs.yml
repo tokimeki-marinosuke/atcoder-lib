@@ -10,6 +10,10 @@ edit_uri: blob/main/
 docs_dir: build/docs
 site_dir: build/site
 
+# MkDocs既定のtemplates/除外を解除し、再利用用Pythonコードも教材に含める。
+exclude_docs: |
+  !/templates/
+
 theme:
   name: material
   language: ja
@@ -90,7 +94,14 @@ nav:
       - 区間マージ: techniques/interval-merging.md
       - 1要素を左へ移動した結果の種類数: techniques/count-distinct-left-moves.md
       - 目標文字列の部分列カウント: techniques/subsequence-counting.md
+  - Pythonテンプレート: templates/README.md
   - コンテスト振り返り:
+      - 学内コンテスト 2026年11月28日:
+          - 全体の振り返り: contests/campus-2026-11-28/README.md
+          - 村人の友好関係: contests/campus-2026-11-28/villager-friendship.md
+          - タスクスケジューリング: contests/campus-2026-11-28/task-scheduling.md
+          - Q4 データの分類: contests/campus-2026-11-28/data-classification.md
+          - ボタン押しロボット: contests/campus-2026-11-28/button-robots.md
       - ABC483 C — Second Choice Election: contests/ABC483-C.md
       - C — Move One Card: contests/C-Move-One-Card.md
       - paiza S082 — タイルの敷き詰め: contests/paiza-S082.md
